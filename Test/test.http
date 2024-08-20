@@ -1,0 +1,45 @@
+###
+GET http://localhost:4004/wisdom/Students(student_id='1001')
+
+### GET Request
+GET http://localhost:4004/odata/v4/students/Teachers
+
+
+### POST CREATION OF RECORDS
+POST http://localhost:4004/wisdom/Students
+Content-Type: application/json 
+
+
+{
+    "student_id":"9001",
+    "student_name":"Ajith"
+}
+
+### Update When updating, we have to give the key field values in the url for identification
+PATCH http://localhost:4004/wisdom/Students(student_id='1006')
+Content-Type: application/json 
+
+{
+    "student_name":"shanthi"
+}
+
+
+### DELETE
+DELETE http://localhost:4006/odata/v4/students/Students(student_id='1006')
+
+
+
+###
+GET http://localhost:4004/wisdom/CompleteStudentInfo(student_id='1001')
+
+
+
+### POST CREATION OF RECORDS
+POST http://localhost:4004/wisdom/CompleteStudentInfo
+Content-Type: application/json 
+
+
+{
+    "student_id":"9001",
+    "student_name":"Ajith"
+}
