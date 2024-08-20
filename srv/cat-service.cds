@@ -8,4 +8,5 @@ service students{
     entity StudentFees as projection on my.StudentFees;
     entity Logs as projection on my.Logs;
     entity CompleteStudentInfo as projection on my.CompleteStudentInfo;
+    entity Students1 as projection on my.Students;
 }

@@ -30,7 +30,3 @@ entity CompleteStudentInfo{
         fees_paid : Boolean;  
 }
 
-
-entity Sample{
-    key sample:String;
-}
