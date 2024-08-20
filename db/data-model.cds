@@ -29,3 +29,8 @@ entity CompleteStudentInfo{
         student_name : String;
         fees_paid : Boolean;  
 }
+
+
+entity Sample{
+    key sample:String;
+}
