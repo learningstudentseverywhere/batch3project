@@ -43,3 +43,24 @@ Content-Type: application/json
     "student_id":"9001",
     "student_name":"Ajith"
 }
+
+
+### POST CREATION OF RECORDS for Staffs
+POST http://localhost:4004/wisdom/Staffs
+Content-Type: application/json 
+
+
+{
+   
+    "staff_name":"Thenmozhi"
+}
+
+
+###
+PATCH http://localhost:4004/wisdom/Staffs(ID=b2496676-7e61-42c0-8b38-4650ecf666ec)
+Content-Type: application/json 
+
+
+{
+    "staff_name":"Kalvi"
+}
