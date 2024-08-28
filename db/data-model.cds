@@ -16,9 +16,15 @@ aspect studentheight{
 
 entity Students:studentidaspect,studentheight{
         student_name : String;
+        //to_Parents : Association to many Parents on to_Parents.student_id = $self.student_id;
+        to_Parents : Composition of many Parents on to_Parents.student_id = $self.student_id;
 }
 
-
+entity Parents:studentidaspect {
+    key parent_id : String;
+     parent_name : String;
+     to_Students : Association to many Students on to_Students.student_id  = $self.student_id;
+}
 entity StudentFees:studentidaspect{
         fees_paid : Boolean;   //True or false
 }

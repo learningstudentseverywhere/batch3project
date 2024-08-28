@@ -25,7 +25,7 @@ Content-Type: application/json
 
 
 ### DELETE
-DELETE http://localhost:4006/odata/v4/students/Students(student_id='1006')
+DELETE http://localhost:4004/wisdom/Parents(student_id='1002',parent_id='2002')
 
 
 
@@ -57,7 +57,7 @@ Content-Type: application/json
 
 
 ###
-PATCH http://localhost:4004/wisdom/Staffs(ID=b2496676-7e61-42c0-8b38-4650ecf666ec)
+PATCH http://localhost:4004/wisdom/Staffs(ID=be3a6474-eb3b-471e-87d0-7c2e479250f8)
 Content-Type: application/json 
 
 
