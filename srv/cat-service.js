@@ -60,8 +60,30 @@ module.exports = cds.service.impl(
    this.on('CREATE','CompleteStudentInfo',async req=>{
     console.log('Entered Complete Info');
 });
+   
+    this.on('getStudentDetails', async req => {
+      let student_id = req.data.studentId!=''? req.data.studentId:"1002"
+      let result = {
+        student_name: "",
+        fees_paid: "",
+        parent_name: "",
+        student_marks:[]
 
-  
+      }
+      let studentdetails = await SELECT.from('batch3_Students').where({ student_id: student_id });
+      let studentfeesdetails = await SELECT.from('batch3_StudentFees').where({ student_id: student_id });
+      let studentparentdetails = await SELECT.from('batch3_Parents').where({ student_id: student_id });
+      let studentMarks = await SELECT.from('batch3_StudentMarks').where({ student_id: student_id }).columns('Marks','subject').limit(5);
+
+      result.student_name = studentdetails[0].student_name;
+      result.fees_paid = studentfeesdetails[0].fees_paid;
+      result.parent_name = studentparentdetails[0].parent_name;
+      result.student_marks = studentMarks;
+      console.log('Entered Custom Function');
+
+      return result;
+    })
+
    
 
     }

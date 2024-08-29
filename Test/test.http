@@ -25,7 +25,7 @@ Content-Type: application/json
 
 
 ### DELETE
-DELETE http://localhost:4004/wisdom/Parents(student_id='1002',parent_id='2002')
+DELETE http://localhost:4004/wisdom/Students(student_id='1001')
 
 
 
@@ -64,3 +64,7 @@ Content-Type: application/json
 {
     "staff_name":"Kalvi"
 }
+
+
+###
+GET http://localhost:4004/wisdom/getStudentDetails(studentId='')

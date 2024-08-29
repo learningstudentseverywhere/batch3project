@@ -14,10 +14,17 @@ aspect studentheight{
      student_height: Integer;
 }
 
+
 entity Students:studentidaspect,studentheight{
         student_name : String;
         //to_Parents : Association to many Parents on to_Parents.student_id = $self.student_id;
         to_Parents : Composition of many Parents on to_Parents.student_id = $self.student_id;
+}
+
+
+entity StudentMarks:studentidaspect{
+      key subject:String;
+      Marks:String;
 }
 
 entity Parents:studentidaspect {

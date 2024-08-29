@@ -10,4 +10,21 @@ service students{
     entity CompleteStudentInfo as projection on my.CompleteStudentInfo;
     entity Staffs as projection on my.Staffs;
     entity Parents as projection on my.Parents;
+    entity StudentMarks as projection on my.StudentMarks;
+
+
+   type studentmarkstype {
+      subject:String;
+      Marks:String;
+   }
+
+    //Structure
+    type studentOutputStructure{
+         student_name : String;
+         fees_paid : Boolean;
+         parent_name : String;
+         student_marks : Array of studentmarkstype;
+        
+    }
+    function getStudentDetails(studentId:String) returns studentOutputStructure;
 }
