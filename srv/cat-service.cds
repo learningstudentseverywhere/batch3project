@@ -26,5 +26,13 @@ service students{
          student_marks : Array of studentmarkstype;
         
     }
+
+    type inputStudentStructure{
+        studentId:String;
+        student_name:String;
+    }
     function getStudentDetails(studentId:String) returns studentOutputStructure;
+ 
+    action getStudentDetailsAction(Input:inputStudentStructure) returns studentOutputStructure;
+
 }

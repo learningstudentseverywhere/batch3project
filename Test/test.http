@@ -68,3 +68,17 @@ Content-Type: application/json
 
 ###
 GET http://localhost:4004/wisdom/getStudentDetails(studentId='1001')
+
+
+###
+POST http://localhost:4004/wisdom/getStudentDetailsAction
+Content-Type: application/json  
+
+{
+    "Input":
+         {
+         "studentId":"1001",
+         "student_name":"Sakthivel"
+           
+        }
+}
