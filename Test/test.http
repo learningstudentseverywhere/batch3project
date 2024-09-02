@@ -67,4 +67,4 @@ Content-Type: application/json
 
 
 ###
-GET http://localhost:4004/wisdom/getStudentDetails(studentId='')
+GET http://localhost:4004/wisdom/getStudentDetails(studentId='1001')
