@@ -26,6 +26,7 @@ modules:
           srv-url: ${default-url}
     requires:
       - name: batch3project-db
+      - name: batch3project-auth
 
   - name: batch3project-db-deployer
     type: hdb
@@ -35,9 +36,34 @@ modules:
     requires:
       - name: batch3project-db
 
+  - name: batch3project
+    type: approuter.nodejs
+    path: app/router
+    parameters:
+      keep-existing-routes: true
+      disk-quota: 256M
+      memory: 256M
+    requires:
+      - name: srv-api
+        group: destinations
+        properties:
+          name: srv-api # must be used in xs-app.json as well
+          url: ~{srv-url}
+          forwardAuthToken: true
+      - name: batch3project-auth
+
 resources:
   - name: batch3project-db
     type: com.sap.xs.hdi-container
     parameters:
       service: hana
       service-plan: hdi-shared
+  - name: batch3project-auth
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+      config:
+        xsappname: batch3project-${org}-${space}
+        tenant-mode: dedicated

@@ -7,8 +7,9 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^7",
-    "express": "^4",
-    "@sap/cds-hana": "^2"
+    "@sap/cds-hana": "^2",
+    "@sap/xssec": "^4",
+    "express": "^4"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^1",
@@ -18,11 +19,12 @@
   },
   "scripts": {
     "start": "cds-serve",
-    "sakthivel":"cds watch"
+    "sakthivel": "cds watch"
   },
   "cds": {
     "requires": {
-      "db": "sql"
+      "db": "hana",
+      "auth": "xsuaa"
     }
   }
 }

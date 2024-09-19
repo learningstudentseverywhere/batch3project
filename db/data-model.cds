@@ -3,7 +3,7 @@ namespace batch3;
 using {managed,cuid} from '@sap/cds/common';
 
 
-
+//Datamodel file is used only for creating tables
 
 aspect studentidaspect {
      key student_id : String;

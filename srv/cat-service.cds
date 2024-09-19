@@ -11,7 +11,7 @@ service students{
     entity Staffs as projection on my.Staffs;
     entity Parents as projection on my.Parents;
     entity StudentMarks as projection on my.StudentMarks;
-
+    
 
    type studentmarkstype {
       subject:String;
@@ -34,5 +34,35 @@ service students{
     function getStudentDetails(studentId:String) returns studentOutputStructure;
  
     action getStudentDetailsAction(Input:inputStudentStructure) returns studentOutputStructure;
+
+    //View for fetching the student data
+    //Inner join
+    entity StudentsView as select
+    key A.student_id,
+    key A.student_name,
+        B.fees_paid
+    from Students as A
+    inner join StudentFees as B
+    on A.student_id = B.student_id;
+
+    //Left outer join
+    entity StudentsViewLeft as select
+    key A.student_id,
+    key A.student_name,
+        B.fees_paid
+    from Students as A
+    left outer join StudentFees as B
+    on A.student_id = B.student_id;
+
+
+    //Inner join
+    entity StudentsViewMarks as select
+    key A.student_id,
+    key A.student_name,
+    key B.subject,
+        B.Marks
+    from Students as A
+    inner join StudentMarks as B
+    on A.student_id = B.student_id;
 
 }
